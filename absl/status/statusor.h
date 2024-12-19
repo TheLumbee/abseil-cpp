@@ -547,6 +547,9 @@ class StatusOr : private internal_statusor::StatusOrData<T>,
   // complaints from any tools that are checking that errors are not dropped on
   // the floor.
   void IgnoreError() const;
+  void append_status_message(const std::string& additional) {
+	this->status_.AppendToMessage(additional);
+  }
 
   // StatusOr<T>::emplace()
   //
