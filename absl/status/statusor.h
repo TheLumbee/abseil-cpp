@@ -100,6 +100,7 @@ class BadStatusOrAccess : public std::exception {
   // Returns the associated `absl::Status` of the `absl::StatusOr<T>` object's
   // error.
   const absl::Status& status() const;
+  void append_status_message(const std::string& additional);
 
  private:
   void InitWhat() const;

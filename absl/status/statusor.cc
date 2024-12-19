@@ -61,6 +61,9 @@ absl::Nonnull<const char*> BadStatusOrAccess::what() const noexcept {
 }
 
 const absl::Status& BadStatusOrAccess::status() const { return status_; }
+void BadStatusOrAccess::append_status_message(const std::string& additional) {
+	status_.AppendToMessage(additional);
+}
 
 void BadStatusOrAccess::InitWhat() const {
   absl::call_once(init_what_, [this] {
